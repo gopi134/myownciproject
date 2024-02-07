@@ -17,6 +17,7 @@ pipeline{
          NEXUS_LOGIN = 'nexuslogin' 
          SONARSERVER = 'sonarserver'
          SONARSCANNER = 'sonarscanner'
+         NEXUSPASS = credentials('nexuspass')
     }
 
     stages {
@@ -66,7 +67,7 @@ pipeline{
             }
             }
         } 
-        stage ('uploadArtifact') {
+         stage ('uploadArtifact') {
             steps {
                 nexusArtifactUploader(
                 nexusVersion: 'nexus3',
